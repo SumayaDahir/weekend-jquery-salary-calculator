@@ -2,9 +2,15 @@ $('document').ready(readyNow)
 
 function readyNow(){
     appendDOM();
-$('#submit-button').on("click", submitButton);   
+$('#submit-button').on("click", submitButton); 
+$("#empInfo").on("click", "button", print); 
 }
 const employeeInfo = [];
+let sumOfEmpAnnualSalary = 0;
+
+function print(event) {
+    $(event.target).closest("tr").remove();
+}
 
 function appendDOM(){
     $("#empInfo").empty()
@@ -18,9 +24,13 @@ function appendDOM(){
            <td>${el.idNumber}</td>
            <td>${el.jobTitle}</td>
            <td>${el.annualSalary}</td>
-          </tr>`);
+           <td>
+           <button id="#empInfo">Delete</button>
+           </td>
+          </tr>
+          `
+          );
           } }
-
 
 function submitButton(){
    let firstName = $('#employee-firstname').val();
@@ -35,6 +45,7 @@ function submitButton(){
     $('#employee-idnumber').val();
     $('#employee-jobtitle').val();
     $('#employee-annualsalary').val();
+    $('#sum').text();
     appendDOM()
 }
 
@@ -48,4 +59,8 @@ const newObj = {
     annualSalary: annualSalary
 }
 employeeInfo.push(newObj);
+}
+
+function sumOfAnnualSalary(){
+
 }
