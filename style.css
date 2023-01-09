@@ -8,6 +8,7 @@ body {
 }
 
 header {
+    text-align: center;
     background-color: white;
     width: 90%;
     border-radius: 10px;
