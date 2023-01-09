@@ -1,7 +1,5 @@
 # Jquery Salary Calculator
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
-
 ## Description
 
 Create an application that records employee salaries and adds salaries up to report monthly costs. 
@@ -11,10 +9,9 @@ A 'Submit' button should collect the form information, store the information to 
 
 Create a delete button that removes an employee from the DOM. For Base mode, it does **not** need to remove that Employee's salary from the reported total..
 
-## Example:
-
 ## Prerequisites:
 
+- VS Code
 - Javascript 
 - JQuery
 

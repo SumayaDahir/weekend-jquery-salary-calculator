@@ -1,15 +1,22 @@
 $('document').ready(readyNow)
+// Create an on ready function
 
 function readyNow(){
+// set up click handlers
 $('#submit-button').on("click", submitButton); 
 $("#empInfo").on("click", "button", deleteEmployee);
+// create a clear table button to clear employees data
 $("#clear").on("click", () => $("#empInfo").empty());
 sumOfEmployeeAnnualSalary = 0;
 $('#total-annualsalary').text(sumOfEmployeeAnnualSalary);
 }; 
+
+// create a global variable for the annual salary and assign it to 0
 let sumOfEmployeeAnnualSalary = 0;  
 
+// Create a function for the submit button  
 function submitButton( ){
+    //create new object that takes in the values of the employees information
      const newObj = {
          firstName : $('#employee-firstname').val(),
          lastName : $('#employee-lastname').val(),
@@ -19,18 +26,19 @@ function submitButton( ){
      };
 
      console.log(newObj);
+     // clear inputs
      $('#employee-firstname').val();
      $('#employee-lastname').val();
      $('#employee-idnumber').val();
      $('#employee-jobtitle').val();
      $('#employee-annualsalary').val('$' + $('#employee-annualsalary'));
-
      
-    
+    // If statement that will be used to change the color
+    // Of the Total Monthly salary if it goes over 20,000
      if (Number(sumOfEmployeeAnnualSalary) > 20000) {
     $('#total-annualsalary').css('background-color', 'red');
-
-     }
+    }
+     // Append Employee information onto the DOM
          $("#empInfo").append(
             `<tr class="${sumOfEmployeeAnnualSalary}">
                <td>${newObj.firstName}</td>
@@ -42,19 +50,18 @@ function submitButton( ){
               </tr>
               `
               );
-  
+// Create a calculation of the employees annual salary and divide it by 12 
 sumOfEmployeeAnnualSalary += Number(newObj.annualSalary) 
 let totalSalary = sumOfEmployeeAnnualSalary / 12
  $('#total-annualsalary').text(Number(totalSalary));           
     }
-    
+// this function is used to delete the information on the DOM    
 function deleteEmployee(event) {
-    let count = $(event.target).closest('tr').find('.employeeFormInfo').text();
+    let count = $(event.target).closest('tr').find('#empInfo').text();
     sumOfEmployeeAnnualSalary -= Number(count);
  $('#total-annualsalary').text(Number(sumOfEmployeeAnnualSalary));
 
+// Select the button that was clicked and find the row that it's in 
+// then remove that row
     $(event.target).closest("tr").remove();
     }
-
-
-  
