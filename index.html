@@ -10,8 +10,10 @@
     <title>weekend jquery salary calculato</title>
 </head>
 <body>
+    <header>
     <h1>Salary Calculato</h1>
     <h2>Add Employee</h2>
+    </header>
     <div class="employeeFormInfo">
         <input id="employee-firstname" type="text" placeholder="First Name">
         <input id="employee-lastname" type="text"  placeholder="Last Name">
@@ -19,8 +21,8 @@
         <input id="employee-jobtitle" type="text"  placeholder="Job Title">
         <input id="employee-annualsalary" type="number" placeholder="Annual Salary">
         <button id="submit-button"> Submit </button>
-        <!-- delete button should be hidden <button id="delete-button"> Clear </button> -->
-    </div>
+        <button id="clear">Clear</button>
+    
     <h3>Employees</h3>
     <table>
         <thead>
@@ -34,6 +36,6 @@
     </tbody>
     </table>    
     <h2>Total Monthly: <span id="total-annualsalary">0</span></h2>
-
+</div>
 </body>
 </html>

@@ -3,7 +3,7 @@ $('document').ready(readyNow)
 function readyNow(){
 $('#submit-button').on("click", submitButton); 
 $("#empInfo").on("click", "button", deleteEmployee);
-$("#empInfo").on("click", () => $("#empInfo").empty());
+$("#clear").on("click", () => $("#empInfo").empty());
 sumOfEmployeeAnnualSalary = 0;
 $('#total-annualsalary').text(sumOfEmployeeAnnualSalary);
 }; 
@@ -26,9 +26,8 @@ function submitButton( ){
      $('#employee-annualsalary').val('$' + $('#employee-annualsalary'));
 
      
-     //let empRow = 'underTotal';
+    
      if (Number(sumOfEmployeeAnnualSalary) > 20000) {
-         //empRow = 'overTotal';
     $('#total-annualsalary').css('background-color', 'red');
 
      }
