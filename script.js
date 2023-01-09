@@ -7,10 +7,9 @@ $("#empInfo").on("click", () => $("#empInfo").empty());
 sumOfEmployeeAnnualSalary = 0;
 $('#total-annualsalary').text(sumOfEmployeeAnnualSalary);
 }; 
+let sumOfEmployeeAnnualSalary = 0;  
 
-let sumOfEmployeeAnnualSalary = 0;
 function submitButton( ){
-    let sumOfEmployeeAnnualSalary = 0;   
      const newObj = {
          firstName : $('#employee-firstname').val(),
          lastName : $('#employee-lastname').val(),
@@ -24,13 +23,17 @@ function submitButton( ){
      $('#employee-lastname').val();
      $('#employee-idnumber').val();
      $('#employee-jobtitle').val();
-     $('#employee-annualsalary').val();
+     $('#employee-annualsalary').val('$' + $('#employee-annualsalary'));
+
      
-     if (Number(newObj.sumOfEmployeeAnnualSalary) > 20000) {
-        $('#total-monthly-cost').css('background-color', 'red');
+     //let empRow = 'underTotal';
+     if (Number(sumOfEmployeeAnnualSalary) > 20000) {
+         //empRow = 'overTotal';
+    $('#total-annualsalary').css('background-color', 'red');
+
      }
          $("#empInfo").append(
-            `<tr class="${empRow}">
+            `<tr class="${sumOfEmployeeAnnualSalary}">
                <td>${newObj.firstName}</td>
                <td>${newObj.lastName}</td>
                <td>${newObj.idNumber}</td>
@@ -40,19 +43,19 @@ function submitButton( ){
               </tr>
               `
               );
-
-sumOfEmployeeAnnualSalary += Number(newObj.annualSalary.sumOfEmployeeAnnualSalary);
- $('#total-annualsalary').text(Number(sumOfEmployeeAnnualSalary));           
-      
+  
+sumOfEmployeeAnnualSalary += Number(newObj.annualSalary) 
+let totalSalary = sumOfEmployeeAnnualSalary / 12
+ $('#total-annualsalary').text(Number(totalSalary));           
     }
     
 function deleteEmployee(event) {
-    /*let count = $(event.target).closest('tr').find('h3').text();
+    let count = $(event.target).closest('tr').find('.employeeFormInfo').text();
     sumOfEmployeeAnnualSalary -= Number(count);
-    $('#total-annualsalary').text(Number(sumOfEmployeeAnnualSalary));
-    */
+ $('#total-annualsalary').text(Number(sumOfEmployeeAnnualSalary));
+
     $(event.target).closest("tr").remove();
     }
 
 
-
+  
