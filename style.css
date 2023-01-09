@@ -49,6 +49,11 @@ button {
     cursor: pointer;
 }
 
+table  {
+    width: 100%;
+    border: 1px solid gray;
+ }
+
 table td {
     text-align: center;
     margin: 20px;

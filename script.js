@@ -27,16 +27,16 @@ function submitButton( ){
 
      console.log(newObj);
      // clear inputs
-     $('#employee-firstname').val();
-     $('#employee-lastname').val();
-     $('#employee-idnumber').val();
-     $('#employee-jobtitle').val();
-     $('#employee-annualsalary').val('$' + $('#employee-annualsalary'));
+     $('#employee-firstname').val('');
+     $('#employee-lastname').val('');
+     $('#employee-idnumber').val('');
+     $('#employee-jobtitle').val('');
+     $('#employee-annualsalary').val('');
      
     // If statement that will be used to change the color
     // Of the Total Monthly salary if it goes over 20,000
      if (Number(sumOfEmployeeAnnualSalary) > 20000) {
-    $('#total-annualsalary').css('background-color', 'red');
+    $('#total-salary').css('background-color', 'red');
     }
      // Append Employee information onto the DOM
          $("#empInfo").append(
@@ -45,20 +45,19 @@ function submitButton( ){
                <td>${newObj.lastName}</td>
                <td>${newObj.idNumber}</td>
                <td>${newObj.jobTitle}</td>
-               <td>${newObj.annualSalary}</td>
+               <td class="salary">${newObj.annualSalary}</td>
                <td><button id="#empInfo">Delete</button></td>
               </tr>
               `
               );
 // Create a calculation of the employees annual salary and divide it by 12 
-sumOfEmployeeAnnualSalary += Number(newObj.annualSalary) 
-let totalSalary = sumOfEmployeeAnnualSalary / 12
- $('#total-annualsalary').text(Number(totalSalary));           
+sumOfEmployeeAnnualSalary += Number(newObj.annualSalary / 12) 
+ $('#total-annualsalary').text(Number(sumOfEmployeeAnnualSalary));           
     }
 // this function is used to delete the information on the DOM    
 function deleteEmployee(event) {
-    let count = $(event.target).closest('tr').find('#empInfo').text();
-    sumOfEmployeeAnnualSalary -= Number(count);
+    let count = $(event.target).closest('tr').find('.salary').text();
+    sumOfEmployeeAnnualSalary -= Number(count) / 12;
  $('#total-annualsalary').text(Number(sumOfEmployeeAnnualSalary));
 
 // Select the button that was clicked and find the row that it's in 
